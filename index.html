@@ -6,132 +6,137 @@
     <title>3D Portfolio Codex - Jahnavi Ravi</title>
     <style>
         body { background-color: #0d1117; color: #c9d1d9; font-family: -apple-system, system-ui, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; perspective: 2500px; overflow: hidden; }
-        .book { position: relative; width: 450px; height: 600px; transform-style: preserve-3d; transition: transform 0.8s; }
+        .book { position: relative; width: 450px; height: 600px; transform-style: preserve-3d; }
         .page { position: absolute; width: 100%; height: 100%; top: 0; left: 0; transform-origin: left; transform-style: preserve-3d; transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1); cursor: pointer; border-radius: 4px 20px 20px 4px; box-shadow: 15px 15px 30px rgba(0,0,0,0.5); }
-        .face { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; display: flex; flex-direction: column; padding: 45px; box-sizing: border-box; justify-content: space-between; background: #161b22; border: 1px solid #30363d; border-radius: inherit; }
+        .face { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; display: flex; flex-direction: column; padding: 40px; box-sizing: border-box; justify-content: space-between; background: #161b22; border: 1px solid #30363d; border-radius: inherit; }
         .back { transform: rotateY(180deg); background: #010409; }
         .page.flipped { transform: rotateY(-180deg); }
-        h1 { font-size: 26px; color: #58a6ff; margin: 0; line-height: 1.2; }
-        p { font-size: 15px; line-height: 1.6; color: #8b949e; }
-        .tech { display: flex; gap: 8px; flex-wrap: wrap; margin: 15px 0; }
-        .tag { font-size: 11px; padding: 3px 10px; background: #21262d; border: 1px solid #30363d; border-radius: 12px; color: #f0f6fc; }
-        .link { display: inline-block; padding: 12px 24px; background: #238636; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 14px; text-align: center; transition: background 0.2s; }
+        h1 { font-size: 22px; color: #58a6ff; margin: 0; line-height: 1.3; }
+        p { font-size: 13px; line-height: 1.6; color: #8b949e; margin: 8px 0; }
+        .tech { display: flex; gap: 6px; flex-wrap: wrap; margin: 10px 0; }
+        .tag { font-size: 10px; padding: 3px 8px; background: #21262d; border: 1px solid #30363d; border-radius: 12px; color: #f0f6fc; }
+        .link { display: inline-block; padding: 10px 20px; background: #238636; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 13px; text-align: center; transition: background 0.2s; margin-top: 8px; }
         .link:hover { background: #2ea043; }
         .cover { background: linear-gradient(135deg, #21262d 0%, #0d1117 100%); border-left: 10px solid #58a6ff; }
-        .cover h1 { font-size: 38px; color: #f0f6fc; margin-top: 50px; }
-        .nav { margin-top: 50px; display: flex; gap: 20px; z-index: 1000; }
+        .cover h1 { font-size: 34px; color: #f0f6fc; margin-top: 30px; }
+        .nav { margin-top: 40px; display: flex; gap: 20px; z-index: 1000; }
         button { padding: 10px 20px; background: #21262d; color: #c9d1d9; border: 1px solid #30363d; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.2s; }
-        button:hover { background: #30363d; border-color: #8b949e; }
+        button:hover { background: #30363d; }
+        .pg { font-size: 11px; color: #484f58; margin-top: 5px; }
     </style>
 </head>
 <body>
     <div class="book" id="book">
-        <!-- Cover -->
-        <div class="page cover" id="p1" style="z-index: 11;" onclick="flip(1)">
+        <div class="page cover" id="p1" style="z-index:11" onclick="flip(1)">
             <div class="face front">
-                <div><h1>The Advanced Project Codex</h1><p>Master Portfolio of Jahnavi Ravi</p></div>
-                <div style="text-align:right"><small>Begin Exploration →</small></div>
+                <div><h1>The Advanced Project Codex</h1><p>Master Portfolio of Jahnavi Ravi</p><p>10 Super Advanced Engineering Projects</p></div>
+                <div style="text-align:right"><small>Click to Begin &rarr;</small></div>
             </div>
             <div class="face back">
                 <h1>01. Distributed Training Orchestrator</h1>
-                <p>A custom orchestration engine for distributed LLM training across heterogeneous GPU clusters. Features dynamic load balancing and fault-tolerant checkpointing.</p>
-                <div class="tech"><span class="tag">Kubernetes</span><span class="tag">PyTorch</span><span class="tag">NCCL</span><span class="tag">gRPC</span></div>
-                <a href="#" class="link">View Architecture</a>
+                <p>Custom orchestration engine for distributed LLM training across heterogeneous GPU clusters with dynamic load balancing and fault-tolerant checkpointing.</p>
+                <div class="tech"><span class="tag">Kubernetes</span><span class="tag">PyTorch FSDP</span><span class="tag">NCCL</span><span class="tag">gRPC</span></div>
+                <a href="https://github.com/Jahnavi-Rav/distributed-training-orchestrator" target="_blank" class="link">GitHub Repo</a>
+                <p class="pg">Page 1 of 10</p>
             </div>
         </div>
-        <!-- Page 2 -->
-        <div class="page" id="p2" style="z-index: 10;" onclick="flip(2)">
+        <div class="page" id="p2" style="z-index:10" onclick="flip(2)">
             <div class="face front">
                 <h1>02. Neural Kernel JIT Compiler</h1>
-                <p>A Just-In-Time compiler for deep learning primitives that generates optimized CUDA/Triton kernels on-the-fly based on input tensor shapes.</p>
-                <div class="tech"><span class="tag">LLVM</span><span class="tag">C++</span><span class="tag">Triton</span><span class="tag">CUDA</span></div>
+                <p>JIT compiler generating optimized CUDA/Triton kernels on-the-fly based on input tensor shapes, with LLVM IR backend and hardware auto-tuning.</p>
+                <div class="tech"><span class="tag">LLVM</span><span class="tag">Triton</span><span class="tag">CUDA PTX</span><span class="tag">pybind11</span></div>
+                <a href="https://github.com/Jahnavi-Rav/neural-kernel-jit-compiler" target="_blank" class="link">GitHub Repo</a>
+                <p class="pg">Page 2 of 10</p>
             </div>
             <div class="face back">
                 <h1>03. Real-time 3D Scene Reconstructor</h1>
-                <p>Ultra-low latency SLAM system using Neural Radiance Fields (NeRFs) for photorealistic 3D reconstruction from monocular video streams.</p>
+                <p>Ultra-low latency SLAM system using Neural Radiance Fields (NeRF) for photorealistic 3D reconstruction from monocular video streams at 60fps.</p>
                 <div class="tech"><span class="tag">NeRF</span><span class="tag">TensorRT</span><span class="tag">CUDA</span><span class="tag">OpenCV</span></div>
-                <a href="#" class="link">GitHub Repo</a>
+                <a href="https://github.com/Jahnavi-Rav/realtime-3d-scene-reconstructor" target="_blank" class="link">GitHub Repo</a>
+                <p class="pg">Page 3 of 10</p>
             </div>
         </div>
-        <!-- Page 3 -->
-        <div class="page" id="p3" style="z-index: 9;" onclick="flip(3)">
+        <div class="page" id="p3" style="z-index:9" onclick="flip(3)">
             <div class="face front">
-                <h1>04. High-Frequency Trading Engine</h1>
-                <p>A sub-microsecond latency trading engine implemented in Rust, utilizing kernel bypass (DPDK) and FPGA-based order matching.</p>
+                <h1>04. HFT Trading Engine</h1>
+                <p>Sub-microsecond latency trading engine in Rust with DPDK kernel bypass networking and FPGA-accelerated order matching for financial markets.</p>
                 <div class="tech"><span class="tag">Rust</span><span class="tag">DPDK</span><span class="tag">FPGA</span><span class="tag">ZeroMQ</span></div>
+                <a href="https://github.com/Jahnavi-Rav/hft-trading-engine" target="_blank" class="link">GitHub Repo</a>
+                <p class="pg">Page 4 of 10</p>
             </div>
             <div class="face back">
-                <h1>05. Self-Optimizing DBMS Kernel</h1>
-                <p>A columnar database engine that uses Reinforcement Learning to automatically tune indexing strategies and query execution plans.</p>
-                <div class="tech"><span class="tag">C++</span><span class="tag">PyTorch</span><span class="tag">SIMD</span><span class="tag">SQL</span></div>
-                <a href="#" class="link">Technical Paper</a>
+                <h1>05. Self-Optimizing DBMS</h1>
+                <p>Columnar database engine using Reinforcement Learning to automatically tune indexing strategies and query execution plans in real-time.</p>
+                <div class="tech"><span class="tag">C++</span><span class="tag">PyTorch RL</span><span class="tag">SIMD</span><span class="tag">SQL</span></div>
+                <a href="https://github.com/Jahnavi-Rav/self-optimizing-dbms" target="_blank" class="link">GitHub Repo</a>
+                <p class="pg">Page 5 of 10</p>
             </div>
         </div>
-        <!-- Page 4 -->
-        <div class="page" id="p4" style="z-index: 8;" onclick="flip(4)">
+        <div class="page" id="p4" style="z-index:8" onclick="flip(4)">
             <div class="face front">
                 <h1>06. Autonomous Drone Swarm API</h1>
-                <p>A decentralized communication protocol and control API for managing hundreds of drones with real-time obstacle avoidance and mission planning.</p>
-                <div class="tech"><span class="tag">ROS2</span><span class="tag">C++</span><span class="tag">MAVLink</span><span class="tag">AI</span></div>
+                <p>Decentralized control API for managing autonomous drone swarms with real-time collision avoidance, MAVLink integration, and distributed mission planning.</p>
+                <div class="tech"><span class="tag">ROS2</span><span class="tag">C++</span><span class="tag">MAVLink</span><span class="tag">AI Planning</span></div>
+                <a href="https://github.com/Jahnavi-Rav/drone-swarm-api" target="_blank" class="link">GitHub Repo</a>
+                <p class="pg">Page 6 of 10</p>
             </div>
             <div class="face back">
                 <h1>07. Bio-Inspired Neural Processor</h1>
-                <p>A hardware-software co-design project simulating neuromorphic computing architectures for extreme-low-power edge AI inference.</p>
+                <p>Hardware-software co-design of a spiking neural network neuromorphic chip for ultra-low-power edge AI inference, targeting &lt;1mW operation.</p>
                 <div class="tech"><span class="tag">Verilog</span><span class="tag">SystemC</span><span class="tag">Python</span><span class="tag">ASIC</span></div>
-                <a href="#" class="link">Project Details</a>
+                <a href="https://github.com/Jahnavi-Rav/bio-inspired-neural-processor" target="_blank" class="link">GitHub Repo</a>
+                <p class="pg">Page 7 of 10</p>
             </div>
         </div>
-        <!-- Page 5 -->
-        <div class="page" id="p5" style="z-index: 7;" onclick="flip(5)">
+        <div class="page" id="p5" style="z-index:7" onclick="flip(5)">
             <div class="face front">
-                <h1>08. Zero-Knowledge Proof Toolkit</h1>
-                <p>A highly optimized library for generating and verifying ZK-SNARKs, targeting privacy-preserving decentralized applications.</p>
-                <div class="tech"><span class="tag">Rust</span><span class="tag">Cryptography</span><span class="tag">WASM</span></div>
+                <h1>08. ZK Proof Toolkit</h1>
+                <p>High-performance library for generating and verifying ZK-SNARKs and ZK-STARKs, targeting privacy-preserving DeFi and identity applications.</p>
+                <div class="tech"><span class="tag">Rust</span><span class="tag">Cryptography</span><span class="tag">WASM</span><span class="tag">Groth16</span></div>
+                <a href="https://github.com/Jahnavi-Rav/zk-proof-toolkit" target="_blank" class="link">GitHub Repo</a>
+                <p class="pg">Page 8 of 10</p>
             </div>
             <div class="face back">
                 <h1>09. Multi-Modal Agent Framework</h1>
-                <p>An autonomous agent framework that integrates Vision-Language Models with tool-use capabilities for complex long-horizon task solving.</p>
-                <div class="tech"><span class="tag">GPT-4V</span><span class="tag">LangChain</span><span class="tag">Python</span></div>
-                <a href="#" class="link">Live Demo</a>
+                <p>Autonomous agent framework integrating VLMs with ReAct-based tool-use for complex long-horizon tasks including code generation and web research.</p>
+                <div class="tech"><span class="tag">GPT-4V</span><span class="tag">LangChain</span><span class="tag">Python</span><span class="tag">ReAct</span></div>
+                <a href="https://github.com/Jahnavi-Rav/multimodal-agent-framework" target="_blank" class="link">GitHub Repo</a>
+                <p class="pg">Page 9 of 10</p>
             </div>
         </div>
-        <!-- Page 6 (Last Content Page) -->
-        <div class="page" id="p6" style="z-index: 6;" onclick="flip(6)">
+        <div class="page" id="p6" style="z-index:6" onclick="flip(6)">
             <div class="face front">
                 <h1>10. Quantum Circuit Simulator</h1>
-                <p>A high-performance simulator for quantum circuits using tensor network contraction, optimized for multi-node GPU execution.</p>
+                <p>High-performance quantum circuit simulator using tensor network contraction algorithms, optimized for multi-node GPU execution via MPI + cuQuantum.</p>
                 <div class="tech"><span class="tag">cuQuantum</span><span class="tag">Python</span><span class="tag">C++</span><span class="tag">MPI</span></div>
+                <a href="https://github.com/Jahnavi-Rav/quantum-circuit-simulator" target="_blank" class="link">GitHub Repo</a>
+                <p class="pg">Page 10 of 10</p>
             </div>
             <div class="face back">
-                <h1>Thank You</h1>
-                <p>This book is a living document of my engineering journey. Feel free to explore the code or reach out for collaboration.</p>
-                <div style="display:flex; flex-direction:column; gap:10px;">
-                    <a href="https://github.com/Jahnavi-Rav" class="link">GitHub Profile</a>
+                <h1>Thank You!</h1>
+                <p>This codex is a living portfolio of advanced engineering work. Each project is open-source and ready for exploration.</p>
+                <div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
+                    <a href="https://github.com/Jahnavi-Rav" target="_blank" class="link">GitHub Profile</a>
                     <a href="#" class="link" style="background:#0077b5">LinkedIn</a>
                 </div>
             </div>
         </div>
     </div>
     <div class="nav">
-        <button onclick="prev()">← Previous Page</button>
-        <button onclick="next()">Next Page →</button>
+        <button onclick="prev()">&larr; Prev</button>
+        <button onclick="next()">Next &rarr;</button>
     </div>
     <script>
         let curr = 1;
-        const totalPages = 6;
+        const total = 6;
         function flip(id) {
-            const page = document.getElementById('p' + id);
-            page.classList.toggle('flipped');
-            if (page.classList.contains('flipped')) {
-                setTimeout(() => { page.style.zIndex = id; }, 400);
-                curr = id + 1;
-            } else {
-                setTimeout(() => { page.style.zIndex = (totalPages * 2 - id); }, 400);
-                curr = id;
-            }
+            const p = document.getElementById('p' + id);
+            p.classList.toggle('flipped');
+            if (p.classList.contains('flipped')) { setTimeout(() => { p.style.zIndex = id; }, 400); curr = id + 1; }
+            else { setTimeout(() => { p.style.zIndex = total * 2 - id; }, 400); curr = id; }
         }
-        function next() { if(curr < totalPages) { flip(curr); } }
-        function prev() { if(curr > 1) { curr--; flip(curr); } }
+        function next() { if (curr <= total) flip(curr); }
+        function prev() { if (curr > 1) { curr--; flip(curr); } }
     </script>
 </body>
 </html>
